@@ -42,9 +42,13 @@ int main(void)
     pthread_create(&th1, NULL, Escritor,(void*) &N);
     pthread_join(th1, (void**) &N);
     pthread_create(&th2, NULL, Lector, (void*) &N);
+    pthread_join(th2, NULL);
 
-
-    
-    //pthread_join(th2, NULL);
+    printf("Valor a escribir");
+    scanf("%d", &N);
+     pthread_create(&th1, NULL, Escritor,(void*) &N);
+    pthread_join(th1, (void**) &N);
+    pthread_create(&th2, NULL, Lector, (void*) &N);
+    pthread_join(th2, NULL);
     return 0;
 }
